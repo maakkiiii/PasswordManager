@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.HashMap;
 
 public class LoginPage implements ActionListener {
+    public String account;
 
     JFrame frame = new JFrame();
     JButton loginButton = new JButton("login");
@@ -65,14 +66,13 @@ public class LoginPage implements ActionListener {
                 if (loginInfo.get(userID).equals(password)){
                     messageLabel.setForeground(Color.green);
                     messageLabel.setText("Login successful");
-                    frame.dispose();
-                    PasswordManager passwordManager = new PasswordManager();
+                    PasswordManager passwordManager = new PasswordManager(userID);
                 }else {
                     messageLabel.setForeground(Color.red);
                     messageLabel.setText("Login not successful");
                 }
             }else {
-                messageLabel.setForeground(Color.yellow);
+                messageLabel.setForeground(Color.orange);
                 messageLabel.setText("User not found");
             }
         }
