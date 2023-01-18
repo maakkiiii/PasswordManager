@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,55 +9,44 @@ public class PasswordManager implements ActionListener {
     HashMap<String, String> passwordsMark = new HashMap<>();
     HashMap<String, String> passwordsPoseidon = new HashMap<>();
 
+    HashMap<String, String> emptyHash = new HashMap<>();
+    String empty = "account";
+
+    //LoginPage getAccount = new LoginPage();
+
     String currentUser;
-
-    public PasswordManager(String currentUser) {
-        this();
-        this.currentUser = currentUser;
-    }
-
-    public void setPasswords(){
-        passwordsMateja.put("amazon", "azerbaidschan");
-        passwordsMateja.put("bluewin", "azerbaidschan");
-        passwordsMark.put("amazon", "markusiusrex");
-        passwordsMark.put("yahoo", "markusiusrex");
-    }
-
-    public String showPasswords(){
-        if (currentUser == "Mateja"){
-            showPasswords().equals(passwordsMateja.toString());
-            System.out.println(passwordsMateja.toString());
-        } else if (currentUser == "Mark"){
-            showPasswords().equals(passwordsMark);
-            System.out.println(passwordsMark.toString());
-        } else if (currentUser == "Poseidon"){
-            showPasswords().equals(passwordsPoseidon);
-        } return showPasswords();
-
-        String[][] data = new String[passwordsMateja.size()][2];
-        int count = 0;
-        for(passwordsMateja.Entry<String,String> entry : passwordsMateja.entrySet()){
-            data[count][0] = entry.getKey();
-            data[count][1] = entry.getValue();
-            count++;
-        }
-    }
-
     Object [] column = {"URL", "Password"};
 
-
-
     JFrame frame = new JFrame();
-    JLabel titleLabel = new JLabel("Ihr Passwort Manager");
-    JLabel title2 = new JLabel("Ihre Passwörter:");
-    JTable table = new JTable(column, data);
-    JScrollPane pswdBox = new JScrollPane(table);
     JButton addPswd = new JButton();
     JButton deletePswd = new JButton();
     JTextField urlField = new JTextField();
     JPasswordField newPswd = new JPasswordField();
 
-    PasswordManager(){
+    public PasswordManager(String currentUser) {
+        this.currentUser = currentUser;
+
+        passwordsMateja.put("amazon", "azerbaidschan");
+        passwordsMateja.put("bluewin", "azerbaidschan");
+        passwordsMateja.put("allrounder", "azerbaidschan");
+        passwordsMateja.put("github", "azerbaidschan");
+        passwordsMateja.put("sololearn", "azerbaidschan");
+        passwordsMateja.put("mangasite", "azerbaidschan");
+        passwordsMateja.put("netflix", "azerbaidschan");
+        passwordsMateja.put("honolulu airlines", "azerbaidschan");
+        passwordsMark.put("amazon", "markusiusrex");
+        passwordsMark.put("yahoo", "markusiusrex");
+        passwordsMark.put("allrounder", "markusiusrex");
+        passwordsMark.put("github", "markusiusrex");
+        passwordsMark.put("sololearn", "markusiusrex");
+        passwordsMark.put("mangasite", "markusiusrex");
+        passwordsMark.put("netflix", "markusiusrex");
+        passwordsMark.put("honolulu airlines", "markusiusrex");
+
+        JLabel titleLabel = new JLabel("Ihr Passwort Manager");
+        JLabel title2 = new JLabel("Ihre Passwörter:");
+        JTable table = new JTable(getPasswords(), column);
+        JScrollPane pswdBox = new JScrollPane(table);
 
         titleLabel.setBounds(10,0,1000,35);
         titleLabel.setFont(new Font(null, Font.PLAIN, 25));
@@ -93,7 +81,30 @@ public class PasswordManager implements ActionListener {
         frame.setSize(1920,1080);
         frame.setLayout(null);
         frame.setVisible(true);
+
     }
+
+    public String[][] getPasswords(){
+        HashMap<String, String> currHashMap = new HashMap<>();
+
+        if (currentUser.equals("Mateja")){
+            currHashMap = passwordsMateja;
+        } else if (currentUser.equals("Mark")){
+            currHashMap = passwordsMark;
+        } else if (currentUser.equals("Poseidon")){
+            currHashMap = passwordsPoseidon;
+        }
+
+       String[][] data = new String[currHashMap.size()][2];
+        int count = 0;
+        for(HashMap.Entry<String,String> entry : currHashMap.entrySet()){
+            data[count][0] = entry.getKey();
+            data[count][1] = entry.getValue();
+            count++;
+        }
+        return data;
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {

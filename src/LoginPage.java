@@ -60,13 +60,14 @@ public class LoginPage implements ActionListener {
         }
 
         if (e.getSource() == loginButton){
-            String userID = userIDField.getText();
+            account = userIDField.getText();
             String password = String.valueOf(userPswdField.getPassword());
-            if (loginInfo.containsKey(userID)){
-                if (loginInfo.get(userID).equals(password)){
+            if (loginInfo.containsKey(account)){
+                if (loginInfo.get(account).equals(password)){
                     messageLabel.setForeground(Color.green);
                     messageLabel.setText("Login successful");
-                    PasswordManager passwordManager = new PasswordManager(userID);
+                    PasswordManager passwordManager = new PasswordManager(account);
+                    frame.dispose();
                 }else {
                     messageLabel.setForeground(Color.red);
                     messageLabel.setText("Login not successful");
