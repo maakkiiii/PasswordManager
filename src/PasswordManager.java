@@ -26,22 +26,22 @@ public class PasswordManager implements ActionListener {
     public PasswordManager(String currentUser) {
         this.currentUser = currentUser;
 
-        passwordsMateja.put("amazon", "azerbaidschan");
-        passwordsMateja.put("bluewin", "azerbaidschan");
-        passwordsMateja.put("allrounder", "azerbaidschan");
-        passwordsMateja.put("github", "azerbaidschan");
-        passwordsMateja.put("sololearn", "azerbaidschan");
-        passwordsMateja.put("mangasite", "azerbaidschan");
-        passwordsMateja.put("netflix", "azerbaidschan");
-        passwordsMateja.put("honolulu airlines", "azerbaidschan");
-        passwordsMark.put("amazon", "markusiusrex");
-        passwordsMark.put("yahoo", "markusiusrex");
-        passwordsMark.put("allrounder", "markusiusrex");
-        passwordsMark.put("github", "markusiusrex");
-        passwordsMark.put("sololearn", "markusiusrex");
-        passwordsMark.put("mangasite", "markusiusrex");
-        passwordsMark.put("netflix", "markusiusrex");
-        passwordsMark.put("honolulu airlines", "markusiusrex");
+        passwordsMateja.put("amazon.com", "amazon1");
+        passwordsMateja.put("bluewin.com", "bluewin1");
+        passwordsMateja.put("allrounder.com", "allrounder1");
+        passwordsMateja.put("github.com", "github1");
+        passwordsMateja.put("sololearn.com", "sololearn1");
+        passwordsMateja.put("mangasite.com", "onepiece1");
+        passwordsMateja.put("netflix.com", "netflix1");
+        passwordsMateja.put("honolulu-airlines.com", "honolulu1");
+        passwordsMark.put("amazon.com", "markusiusrex");
+        passwordsMark.put("yahoo.com", "markusiusrex");
+        passwordsMark.put("allrounder.com", "markusiusrex");
+        passwordsMark.put("github.com", "markusiusrex");
+        passwordsMark.put("sololearn.com", "markusiusrex");
+        passwordsMark.put("mangasite.com", "markusiusrex");
+        passwordsMark.put("netflix.com", "markusiusrex");
+        passwordsMark.put("honolulu-airlines.com", "markusiusrex");
 
         JLabel titleLabel = new JLabel("Ihr Passwort Manager");
         JLabel title2 = new JLabel("Ihre Passwörter:");
